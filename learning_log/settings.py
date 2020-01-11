@@ -149,16 +149,16 @@ if cwd == '/app' or cwd[:4] == '/tmp':
         'default': dj_database_url.config(default='postgres://localhost')
     }
 
-# Honra o cabeçalho 'X-Forwarded-proto' para request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    # Honra o cabeçalho 'X-Forwarded-proto' para request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Cabeçalho para permitir todos os hosts
-ALLOWED_HOSTS = ['*']
-DEBUG = False
+    # Permite que apenas o heroku seja o host do projeto
+    ALLOWED_HOSTS = ['registro-seu-aprendizado.herokuapp.com']
+    DEBUG = False
 
-# Configurações de arquivos staticos
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+    # Configurações de recursos staticos
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
